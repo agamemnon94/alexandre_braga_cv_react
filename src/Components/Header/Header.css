@@ -29,6 +29,7 @@
   background: var(--beige);
   user-select: none;
   text-align: center;
+  border-right: 1px solid #000;
 }
 .nav_container {
   display: flex;
