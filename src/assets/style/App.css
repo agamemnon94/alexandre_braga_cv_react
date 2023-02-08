@@ -1,0 +1,46 @@
+/******   reset  *******/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --beige: #aeaea782;
+  --beigefull: #aeaea7;
+  --dark: #0c0c0c;
+  --deepdark: rgb(20, 19, 15);
+  --dark2: rgb(56, 56, 56);
+  --goldy: #dbd3b6;
+  --clearDark: #201f1f;
+  --lightDark: rgba(127, 126, 126, 0.503);
+  --corail: rgb(232, 49, 81);
+  --size: 220px;
+  --translateZ: calc(var(--size) / 2);
+  --position: calc(50% - var(--size) / 2);
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  padding-top: 90px;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--beigefull);
+  border-radius: 10px;
+  border: 3px solid var(--dark);
+}
+body::-webkit-scrollbar-corner {
+  background: var(--dark);
+}
