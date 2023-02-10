@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
-  const handleClick = (props) => {
-    // console.log(props.section2Ref.current);
-    props.section2Ref.scrollIntoView({ behavior: "smooth" });
+export default function Header(props) {
+  console.log(props);
+  const handleClick = () => {
+    // section2Ref.scrollIntoView({ behavior: "smooth" });
   };
 
-  const toggleNavBar = () => {};
+  // const toggleNavBar = () => {};
   return (
     <header>
       <div className="header_container">
@@ -18,24 +18,24 @@ const Header = () => {
         <nav className="nav_container">
           <ul className="header_list">
             <li className="item_accueil">
-              <Link to="/" className="header_a" id="accueil">
+              <NavLink to="/" className="header_a" id="accueil">
                 Accueil
-              </Link>
+              </NavLink>
             </li>
             <li className="item_accueil">
-              <Link to="/About" className="header_a" id="propos">
+              <NavLink to="/About" className="header_a" id="propos">
                 À propos
-              </Link>
+              </NavLink>
             </li>
             <li className="item_accueil">
-              <Link
+              <NavLink
                 to="/About#section_about2"
                 onClick={handleClick}
                 className="header_a"
                 id="projet"
               >
                 Projets{" "}
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <button className="nightbtn" id="nightbtn" type="button">
@@ -64,6 +64,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}

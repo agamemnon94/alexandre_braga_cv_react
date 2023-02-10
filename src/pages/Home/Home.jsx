@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../Components/Layout/Layout";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
@@ -18,9 +18,9 @@ const Home = () => {
           <p className="p_who">Concepteur de sites web,</p>
           <p className="p_who">créatif, curieux et</p>
           <p className="p_who">un peu commercial</p>
-          <Link to="/About" className="a_propos">
+          <NavLink to="/About" className="a_propos">
             01_À PROPOS
-          </Link>
+          </NavLink>
         </div>
         <div className="work_Here">
           <p className="a_work_Here">02_MON BUREAU</p>

@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from "react";
-// import { createLogger } from "vite";
 import Layout from "../../components/Layout/Layout";
+import "./About.css";
 
-const About = (props) => {
+const About = () => {
   const section2Ref = useRef(null);
-  console.log(props);
 
   // console.log(section2Ref);
 
