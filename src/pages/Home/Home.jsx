@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../../Components/Layout/Layout";
 import { NavLink } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
+  // useEffect(() => {
+  //   console.log("Hello");
+  // }, []);
+
   return (
     <Layout>
       <section className="section_1">

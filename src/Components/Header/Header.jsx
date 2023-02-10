@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 export default function Header(props) {
-  console.log(props);
+  // console.log(props);
   const handleClick = () => {
     // section2Ref.scrollIntoView({ behavior: "smooth" });
   };
 
-  // const toggleNavBar = () => {};
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let lastScrollTop = 0;
+
+    const toggleNavBar = () => {
+      branding.style.backgroundPositionY = `${-window.scrollY * 1.49}px`;
+      const scrollTop = window.pageYOffset;
+      if (scrollTop > lastScrollTop) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+      lastScrollTop = scrollTop;
+    };
+    return () => window.addEventListener("scroll", toggleNavBar);
+  }, []);
+
   return (
     <header>
-      <div className="header_container">
+      <div className={scrolled ? "header_hidden" : "header_container"}>
         <p className="header_name" id="alexandre">
           Alexandre Braga
         </p>
