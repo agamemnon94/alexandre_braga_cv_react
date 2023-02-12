@@ -4,9 +4,14 @@ import { NavLink } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
-  // useEffect(() => {
-  //   console.log("Hello");
-  // }, []);
+  useEffect(() => {
+    const parallax = () => {
+      branding.style.backgroundPositionY = `${-window.scrollY * 1.49}px`;
+    };
+    window.addEventListener("scroll", parallax);
+    // On enlève l'écouteur d'évènement pour décharger la fonction du DOM lorsqu'on ira sur une autre page.
+    return () => window.removeEventListener("scroll", parallax);
+  }, []);
 
   return (
     <Layout>

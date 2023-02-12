@@ -1,14 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Layout from "../../components/Layout/Layout";
 import "./About.css";
 
 const About = () => {
-  const section2Ref = useRef(null);
-
-  // console.log(section2Ref);
+  // const section2Ref = useRef(null);
+  const section2Ref = React.createRef();
 
   return (
-    <Layout>
+    <Layout section2Ref={section2Ref}>
       <main className="main_about">
         <section className="section_about">
           <article className="article1">

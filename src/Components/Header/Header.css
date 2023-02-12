@@ -111,9 +111,13 @@
   opacity: 1;
 }
 .sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 25px;
   height: 25px;
-  opacity: 0;
+  opacity: 1;
 }
 .light {
   opacity: 1;

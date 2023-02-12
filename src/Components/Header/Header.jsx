@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 
-export default function Header(props) {
-  // console.log(props);
+export default function Header({ section2Ref }) {
   const handleClick = () => {
-    // section2Ref.scrollIntoView({ behavior: "smooth" });
+    section2Ref.current.scrollIntoView({ behavior: "smooth" });
+    // console.log(section2Ref);
   };
 
   const [scrolled, setScrolled] = useState(false);
@@ -14,7 +14,6 @@ export default function Header(props) {
     let lastScrollTop = 0;
 
     const toggleNavBar = () => {
-      branding.style.backgroundPositionY = `${-window.scrollY * 1.49}px`;
       const scrollTop = window.pageYOffset;
       if (scrollTop > lastScrollTop) {
         setScrolled(true);
@@ -23,8 +22,35 @@ export default function Header(props) {
       }
       lastScrollTop = scrollTop;
     };
-    return () => window.addEventListener("scroll", toggleNavBar);
+    window.addEventListener("scroll", toggleNavBar);
   }, []);
+
+  const [ButtonState, setButtonState] = useState(false);
+
+  const toggleBtnFunction = () => {
+    console.log(ButtonState);
+    setButtonState(!ButtonState);
+  };
+  let toggledButton;
+
+  if (ButtonState) {
+    // body.classListe.add(body_night);
+    toggledButton = (
+      <img
+        className="sun"
+        src={"./src/assets/icons/white_sun.png"}
+        alt="icon white sun"
+      />
+    );
+  } else {
+    toggledButton = (
+      <img
+        className="moon"
+        src={"./src/assets/icons/Black_Moon.png"}
+        alt="icon black moon"
+      />
+    );
+  }
 
   return (
     <header>
@@ -55,7 +81,7 @@ export default function Header(props) {
               </NavLink>
             </li>
           </ul>
-          <button className="nightbtn" id="nightbtn" type="button">
+          {/* <button className="nightbtn" id="nightbtn" type="button">
             {" "}
             <img
               className="moon"
@@ -67,7 +93,25 @@ export default function Header(props) {
               src="./src/assets/icons/white_Sun.png"
               alt="icon white sun"
             />
+          </button> */}
+          <button onClick={toggleBtnFunction} className="nightbtn">
+            {toggledButton}
           </button>
+          {/* <button onClick={toggleBtnFunction} className="nightbtn">
+            {ButtonState ? (
+              <img
+                className="sun"
+                src={"./src/assets/icons/white_sun.png"}
+                alt="icon white sun"
+              />
+            ) : (
+              <img
+                className="moon"
+                src={"./src/assets/icons/Black_Moon.png"}
+                alt="icon black moon"
+              />
+            )}
+          </button> */}
         </nav>
       </div>
 

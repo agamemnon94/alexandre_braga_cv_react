@@ -44,3 +44,33 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-corner {
   background: var(--dark);
 }
+
+.body_night
+  *:not(
+    .work_Here,
+    .my__bike,
+    .mon__style,
+    .branding,
+    .span,
+    .reals,
+    .sun,
+    .moon,
+    .face-front,
+    .face-back,
+    .face-right,
+    .face-left,
+    .face-top,
+    .face-bottom,
+    .face,
+    .lignes,
+    .a__video,
+    .titre_pro p,
+    .mon__style__p,
+    .my_bike_p,
+    strong,
+    .txt_type > .txt,
+    .txt_type2 > .txt
+  ) {
+  background: var(--dark);
+  color: #fff;
+}
