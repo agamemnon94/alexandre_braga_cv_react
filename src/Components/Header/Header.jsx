@@ -3,12 +3,16 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 export default function Header({ section2Ref }) {
+  const [ButtonState, setButtonState] = useState(false);
+  const [bodyState, setBodyState] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  let body = window.document.body;
+  let toggledButton;
+
   const handleClick = () => {
     section2Ref.current.scrollIntoView({ behavior: "smooth" });
     // console.log(section2Ref);
   };
-
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -25,16 +29,14 @@ export default function Header({ section2Ref }) {
     window.addEventListener("scroll", toggleNavBar);
   }, []);
 
-  const [ButtonState, setButtonState] = useState(false);
-
   const toggleBtnFunction = () => {
-    console.log(ButtonState);
+    // console.log(ButtonState);
     setButtonState(!ButtonState);
+    setBodyState(!bodyState);
+    // console.log(bodyState);
   };
-  let toggledButton;
 
   if (ButtonState) {
-    // body.classListe.add(body_night);
     toggledButton = (
       <img
         className="sun"
@@ -51,7 +53,11 @@ export default function Header({ section2Ref }) {
       />
     );
   }
-
+  if (bodyState) {
+    body.className = "body_night";
+  } else {
+    body.className = "";
+  }
   return (
     <header>
       <div className={scrolled ? "header_hidden" : "header_container"}>
